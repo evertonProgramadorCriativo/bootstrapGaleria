@@ -45,12 +45,21 @@ module.exports = {
                  'sass-loader',
             ]
         }, {
-            test:  /\.(png|svg|jpg|gif)$/,
+            test:  /\.(png|svg|eot|jpg|gif)$/,
             use: ['file-loader']
 
         },{
             test:  /.(ttf|otf|svg|woff(2)?)$/,
             use: ['file-loader']
+        },{
+            test: /\.m?js$/,
+            exclude: /(node_modules)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
         }]
     } ,
     
